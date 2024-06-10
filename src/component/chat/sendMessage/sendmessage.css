@@ -145,10 +145,10 @@
 
 
 @media screen and (max-width:1024px){
-    .epr-category-nav{
-   display: none !important;
-}
- 
+   .wrapper{
+      padding-bottom: 20px;
+      border-radius: 0;
+   }
 
    .sendmsgwrapper{
       display: flex;
@@ -157,8 +157,9 @@
       gap: 4px;
 
       input{
-         width: 180px;
+         width: 170px;
          height: 55px;
+         padding:5px
       }
    }
 
@@ -209,6 +210,10 @@
 
 .recordwrapper{
    gap: 0px;
+}
+
+.epr-category-nav{
+   display: none !important;
 }
 
 
