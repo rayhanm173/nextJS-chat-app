@@ -26,7 +26,8 @@ export default function SendMessage() {
     const mediaStream = useRef(null);
     const mediaRecorder = useRef(null);
     const chunks = useRef([]);
-  
+    const imgref= useRef(null);
+    const voiceref= useRef(null)
 
     document.addEventListener('mousedown',(e)=>{
       if(emojiRef.current &&open &&!emojiRef.current.contains(e.target)){
@@ -164,6 +165,7 @@ export default function SendMessage() {
                                     <div className='discarddiv'>
                                     <button className='discardbtn' onClick={(e)=>{setRecordedUrl('')
                                                         setVoiceblob(null)
+                                                        imgref.current.value=''
                                                         console.log('discard')
                                     }}>Discard</button>
                                     </div>
@@ -174,7 +176,7 @@ export default function SendMessage() {
                         <label htmlFor='file'>
                             <img src='./img.png' className='imgicon'/>
                         </label>
-                            <input type='file' id='file' style={{display: 'none'}} onChange={handleImg}/>
+                            <input type='file' id='file' style={{display: 'none'}} onChange={(e)=>handleImg(e)} ref={imgref}/>
                             {/* <img src='./camera.png'/> */}
                             <div id='file' className='voiceicon' style={{backgroundColor: 'transparent'}} onClick={(e)=>{handleVoice(e)}}><img src='./mic.png'/> </div> 
                 </div>
@@ -186,7 +188,7 @@ export default function SendMessage() {
                 <div className='emoji' ref={emojiRef}>
                         <img src='./emoji.png' onClick={(e)=>{setOpen(prev=>!prev)}}/>
                         <div className='picker'>
-                            <EmojiPicker open={open} onEmojiClick={handleEmoji} width={innerWidth>1024?350:250} height={innerWidth>1024?350:320}/>
+                            <EmojiPicker searchDisabled={true} open={open} onEmojiClick={handleEmoji} width={innerWidth>1024?350:250} height={innerWidth>1024?350:320}/>
                         </div>
                     </div>
                         <button className='sendButton'>Send</button>
