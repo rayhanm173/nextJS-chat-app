@@ -145,6 +145,9 @@
 
 
 @media screen and (max-width:1024px){
+    .epr-category-nav{
+   display: none !important;
+}
  
 
    .sendmsgwrapper{
@@ -172,7 +175,7 @@
    }
    .picker{
       position: absolute;
-      bottom: 140px !important;
+      bottom: 112px !important;
       left: -230px !important;
       /* width: 600px; */
    }
